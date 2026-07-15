@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mansi Saini · Profile</title>
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    }
+
+    body {
+      background: #f4f7fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    /* card – clean, soft shadow */
+    .profile-card {
+      max-width: 880px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 2rem;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25);
+      padding: 2.5rem 2rem;
+      transition: 0.2s ease;
+    }
+
+    /* header row: avatar + name + badge */
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .avatar {
+      background: linear-gradient(145deg, #1e2b4f, #2b3f6b);
+      width: 80px;
+      height: 80px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+      box-shadow: 0 8px 14px rgba(27, 45, 85, 0.2);
+    }
+
+    .name-title {
+      flex: 1;
+    }
+
+    .name-title h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0b1a33;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem 0.75rem;
+    }
+
+    .name-title h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #4a5b7a;
+      background: #eef3fa;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-pronouns {
+      background: #dce5f2;
+      color: #1e3a6b;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.25rem 1rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 0.2rem;
+    }
+
+    .headline {
+      color: #1f3a5f;
+      font-weight: 500;
+      margin-top: 0.2rem;
+      font-size: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 1.2rem;
+    }
+
+    .headline i {
+      color: #2f4f8a;
+      width: 1.4rem;
+    }
+
+    .headline span {
+      background: #e9eff7;
+      padding: 0.2rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1e3a6b;
+    }
+
+    /* quick stat row */
+    .stat-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background: #f8faff;
+      padding: 0.9rem 1.5rem;
+      border-radius: 60px;
+      margin: 1.6rem 0 1.8rem 0;
+      border: 1px solid #e3ebf6;
+    }
+
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+      color: #1d2f4a;
+    }
+
+    .stat-item i {
+      color: #2b4b7a;
+      font-size: 1rem;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .stat-item strong {
+      font-weight: 700;
+      color: #0b1f3b;
+    }
+
+    .stat-item .muted {
+      color: #547197;
+      font-weight: 400;
+      margin-left: 0.2rem;
+    }
+
+    .divider-light {
+      border: none;
+      border-top: 1.5px solid #e6edf6;
+      margin: 1.5rem 0;
+    }
+
+    /* two column layout: about + skills */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .about-section h3,
+    .skills-section h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #11243e;
+      letter-spacing: -0.2px;
+      border-bottom: 2px solid #dee9f5;
+      padding-bottom: 0.6rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .about-section h3 i,
+    .skills-section h3 i {
+      color: #2f5a94;
+      font-size: 1.1rem;
+    }
+
+    .about-text {
+      color: #1f3552;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .about-text p {
+      margin-bottom: 0.7rem;
+    }
+
+    .about-text i {
+      color: #2f5a94;
+      width: 1.4rem;
+      margin-right: 0.2rem;
+    }
+
+    .highlight-badge {
+      display: inline-block;
+      background: #e1eaf5;
+      padding: 0.15rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #0f2d55;
+      margin-right: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.6rem;
+      margin-top: 0.2rem;
+    }
+
+    .skill-tag {
+      background: #eef4fc;
+      color: #17345c;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      border: 1px solid #d4e0f0;
+    }
+
+    .skill-tag i {
+      margin-right: 0.4rem;
+      color: #2b5b94;
+      font-size: 0.75rem;
+    }
+
+    .badge-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.8rem;
+      margin-top: 0.6rem;
+    }
+
+    .badge-list .badge-item {
+      background: #eef2fa;
+      padding: 0.25rem 1rem 0.25rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #1b3d69;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .badge-list .badge-item i {
+      color: #2b4f83;
+      font-size: 0.75rem;
+    }
+
+    /* contact + extras */
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1.2rem;
+      border-top: 1.5px solid #e3ebf6;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.8rem;
+    }
+
+    .contact-links a {
+      text-decoration: none;
+      color: #1f406b;
+      font-weight: 500;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: 0.2s;
+    }
+
+    .contact-links a i {
+      color: #2b5a94;
+      font-size: 1rem;
+      width: 1.2rem;
+    }
+
+    .contact-links a:hover {
+      color: #0b2a57;
+      transform: translateY(-1px);
+    }
+
+    .open-to {
+      background: #dce7f7;
+      padding: 0.4rem 1.4rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #0b274e;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .open-to i {
+      color: #0f3b77;
+    }
+
+    /* analytics mini */
+    .analytics-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background: #fafdff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      margin: 1.2rem 0 0.2rem 0;
+      border: 1px solid #e3ecf7;
+      font-size: 0.85rem;
+      color: #28446b;
+    }
+
+    .analytics-row i {
+      color: #345d92;
+      width: 1.2rem;
+    }
+
+    .analytics-row span {
+      font-weight: 500;
+    }
+
+    .analytics-row .value {
+      font-weight: 700;
+      color: #0c2342;
+    }
+
+    .footer-note {
+      text-align: right;
+      font-size: 0.7rem;
+      color: #6d86a8;
+      margin-top: 0.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* responsive */
+    @media (max-width: 700px) {
+      .profile-card {
+        padding: 1.8rem 1.2rem;
+      }
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .stat-row {
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: flex-start;
+        border-radius: 30px;
+        padding: 1rem 1.2rem;
+      }
+      .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.8rem;
+      }
+      .header-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .name-title h1 {
+        font-size: 1.8rem;
+      }
+      .analytics-row {
+        flex-direction: column;
+        gap: 0.3rem;
+        align-items: flex-start;
+        border-radius: 30px;
+      }
+    }
+
+    @media (max-width: 450px) {
+      .contact-links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .stat-item {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="profile-card">
+
+  <!-- header -->
+  <div class="header-row">
+    <div class="avatar">MS</div>
+    <div class="name-title">
+      <h1>
+        Mansi Saini
+        <small>She/Her</small>
+      </h1>
+      <div class="headline">
+        <span><i class="fas fa-graduation-cap"></i> CSE’27 UG @CTU</span>
+        <span><i class="fas fa-code"></i> GSSoC’26 Contributor</span>
+        <span><i class="fas fa-trophy"></i> 2× Top 3 Hackathon</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- stat row: followers, connections, views, impressions -->
+  <div class="stat-row">
+    <div class="stat-item"><i class="fas fa-users"></i> <strong>579</strong> <span class="muted">followers</span></div>
+    <div class="stat-item"><i class="fas fa-user-plus"></i> <strong>500+</strong> <span class="muted">connections</span></div>
+    <div class="stat-item"><i class="fas fa-eye"></i> <strong>125</strong> <span class="muted">profile views</span></div>
+    <div class="stat-item"><i class="fas fa-chart-line"></i> <strong>364</strong> <span class="muted">post impressions</span></div>
+  </div>
+
+  <!-- grid: about + skills -->
+  <div class="grid-2col">
+    <!-- about -->
+    <div class="about-section">
+      <h3><i class="fas fa-user-circle"></i> About</h3>
+      <div class="about-text">
+        <p><i class="fas fa-laptop-code"></i> Computer Science Engineering Undergraduate (CSE'27) at CT University</p>
+        <p><i class="fas fa-code-branch"></i> Open Source Contributor – <strong>GSSoC'26</strong></p>
+        <p><i class="fas fa-medal"></i> 2× Top 3 Hackathon Finalist</p>
+        <p><i class="fas fa-certificate"></i> DCA Certified · NSS Volunteer</p>
+        <p><i class="fas fa-layer-group"></i> <strong>HTML • CSS • JavaScript • Python</strong></p>
+        <p><i class="fas fa-rocket"></i> Building practical, user-focused web applications.<br> Committed to continuous learning and innovation.</p>
+        <div style="margin-top: 0.5rem;">
+          <span class="highlight-badge"><i class="fas fa-map-pin"></i> India</span>
+          <span class="highlight-badge"><i class="fas fa-globe"></i> Open to opportunities</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- skills + badges -->
+    <div class="skills-section">
+      <h3><i class="fas fa-cogs"></i> Top skills</h3>
+      <div class="skill-tags">
+        <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+        <span class="skill-tag"><i class="fab fa-css3-alt"></i> CSS</span>
+        <span class="skill-tag"><i class="fas fa-lightbulb"></i> Problem Solving</span>
+        <span class="skill-tag"><i class="fab fa-html5"></i> HTML</span>
+        <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+      </div>
+
+      <h3 style="margin-top: 1.4rem;"><i class="fas fa-award"></i> Highlights</h3>
+      <div class="badge-list">
+        <span class="badge-item"><i class="fas fa-code"></i> GSSoC'26</span>
+        <span class="badge-item"><i class="fas fa-trophy"></i> 2× Top 3 Hackathon</span>
+        <span class="badge-item"><i class="fas fa-certificate"></i> DCA Certified</span>
+        <span class="badge-item"><i class="fas fa-hands-helping"></i> NSS Volunteer</span>
+        <span class="badge-item"><i class="fas fa-university"></i> CT University</span>
+      </div>
+      <!-- mini extra: resources (private) -->
+      <div style="margin-top: 1rem; background: #f4f9ff; padding: 0.5rem 1rem; border-radius: 40px; font-size: 0.8rem; color: #1f3b60; display: flex; flex-wrap: wrap; gap: 0.2rem 1rem;">
+        <span><i class="fas fa-lock" style="color:#3a6a9e;"></i> Private: 125 views</span>
+        <span><i class="fas fa-chart-simple"></i> 364 impressions</span>
+        <span><i class="fas fa-search"></i> 11 search appearances</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- analytics (private to you) -->
+  <div class="analytics-row">
+    <span><i class="fas fa-chart-pie"></i> <span class="value">125</span> profile views · discover who viewed</span>
+    <span><i class="fas fa-newspaper"></i> <span class="value">364</span> post impressions · check engagement</span>
+    <span><i class="fas fa-magnifying-glass"></i> <span class="value">11</span> search appearances (past 7 days)</span>
+  </div>
+
+  <!-- contact & open to -->
+  <div class="contact-row">
+    <div class="contact-links">
+      <a href="#"><i class="fas fa-envelope"></i> mansi.s@example.com</a>
+      <a href="#"><i class="fab fa-github"></i> github/mansi-dev</a>
+      <a href="#"><i class="fab fa-linkedin"></i> linkedin/in/mansi-saini</a>
+      <a href="#"><i class="fas fa-globe"></i> mansi.dev</a>
+    </div>
+    <div class="open-to">
+      <i class="fas fa-handshake"></i> Open to collaborate
+    </div>
+  </div>
+
+  <!-- tiny footer: resources + extra -->
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 1.4rem; border-top: 1px solid #e6edf6; padding-top: 0.8rem; font-size: 0.8rem; color: #3b5a7c;">
+    <span><i class="fas fa-folder-open"></i> Resources · Analytics (private)</span>
+    <span><i class="fas fa-user-plus"></i> Enhance profile · Add section</span>
+    <span style="color: #2f5a94;"><i class="fas fa-girlscript"></i> GirlScript Summer of Code</span>
+  </div>
+
+  <div class="footer-note">
+    <i class="fas fa-code"></i> built with html · css · js
+  </div>
+
+</div>
+
+<!-- small javascript (just for show / interactivity) -->
+<script>
+  (function() {
+    // subtle console greeting – demonstrates JS presence
+    console.log('👩‍💻 Mansi Saini · profile card loaded');
+    // optional: add a tiny interactive hover effect on stat row (just for fun)
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach(item => {
+      item.addEventListener('mouseenter', function(e) {
+        this.style.transition = '0.15s';
+        this.style.color = '#0b2a57';
+      });
+      item.addEventListener('mouseleave', function(e) {
+        this.style.color = '#1d2f4a';
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
