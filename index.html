@@ -11,11 +11,11 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
     body {
-      background: #f4f7fc;
+      background: linear-gradient(145deg, #eef2f7 0%, #d9e2ef 100%);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,126 +23,129 @@
       padding: 2rem 1rem;
     }
 
-    /* card – clean, soft shadow */
+    /* main card – glassmorphism + depth */
     .profile-card {
-      max-width: 880px;
+      max-width: 960px;
       width: 100%;
-      background: #ffffff;
-      border-radius: 2rem;
-      box-shadow: 0 20px 40px -12px rgba(0, 20, 40, 0.25);
-      padding: 2.5rem 2rem;
-      transition: 0.2s ease;
+      background: rgba(255, 255, 255, 0.80);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border-radius: 3rem;
+      box-shadow: 0 30px 60px -20px rgba(0, 20, 40, 0.4), 0 8px 20px rgba(0, 0, 0, 0.04);
+      padding: 2.8rem 2.5rem;
+      transition: all 0.25s ease;
+      border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
-    /* header row: avatar + name + badge */
+    /* header with avatar + name */
     .header-row {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
+      gap: 1.8rem;
+      margin-bottom: 1.2rem;
     }
 
     .avatar {
-      background: linear-gradient(145deg, #1e2b4f, #2b3f6b);
-      width: 80px;
-      height: 80px;
-      border-radius: 40px;
+      background: linear-gradient(135deg, #142b4b, #264d7c);
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 600;
       letter-spacing: 1px;
       flex-shrink: 0;
-      box-shadow: 0 8px 14px rgba(27, 45, 85, 0.2);
+      box-shadow: 0 12px 24px -8px rgba(22, 48, 88, 0.3);
+      border: 3px solid rgba(255, 255, 255, 0.6);
+      transition: transform 0.2s ease;
     }
 
-    .name-title {
-      flex: 1;
+    .avatar:hover {
+      transform: scale(1.02);
     }
 
     .name-title h1 {
-      font-size: 2rem;
+      font-size: 2.4rem;
       font-weight: 700;
-      color: #0b1a33;
+      color: #0b1d3a;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.5rem 0.75rem;
+      gap: 0.6rem 1rem;
+      letter-spacing: -0.3px;
     }
 
     .name-title h1 small {
       font-size: 1rem;
-      font-weight: 400;
-      color: #4a5b7a;
-      background: #eef3fa;
-      padding: 0.2rem 1rem;
-      border-radius: 40px;
-      letter-spacing: 0.3px;
-    }
-
-    .badge-pronouns {
-      background: #dce5f2;
-      color: #1e3a6b;
       font-weight: 500;
-      font-size: 0.9rem;
-      padding: 0.25rem 1rem;
-      border-radius: 30px;
-      display: inline-block;
-      margin-top: 0.2rem;
+      background: rgba(25, 60, 110, 0.10);
+      color: #1d3f6e;
+      padding: 0.2rem 1.2rem;
+      border-radius: 40px;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
     }
 
     .headline {
-      color: #1f3a5f;
-      font-weight: 500;
-      margin-top: 0.2rem;
-      font-size: 1rem;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 0.4rem 1.2rem;
-    }
-
-    .headline i {
-      color: #2f4f8a;
-      width: 1.4rem;
+      gap: 0.6rem 1.2rem;
+      margin-top: 0.3rem;
     }
 
     .headline span {
-      background: #e9eff7;
-      padding: 0.2rem 0.9rem;
-      border-radius: 30px;
-      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(2px);
+      padding: 0.25rem 1rem 0.25rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
       font-weight: 500;
-      color: #1e3a6b;
+      color: #1a375b;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
-    /* quick stat row */
+    .headline i {
+      color: #2a538a;
+      font-size: 0.8rem;
+    }
+
+    /* stat row – glass style */
     .stat-row {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      background: #f8faff;
-      padding: 0.9rem 1.5rem;
+      justify-content: space-around;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      padding: 0.9rem 1.2rem;
       border-radius: 60px;
-      margin: 1.6rem 0 1.8rem 0;
-      border: 1px solid #e3ebf6;
+      margin: 1.8rem 0 2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     }
 
     .stat-item {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
       font-size: 0.95rem;
-      color: #1d2f4a;
+      color: #1a3457;
+      padding: 0.2rem 0.6rem;
+      transition: 0.2s;
+      border-radius: 40px;
     }
 
     .stat-item i {
-      color: #2b4b7a;
-      font-size: 1rem;
-      width: 1.4rem;
+      color: #2b4f82;
+      font-size: 1.1rem;
+      width: 1.6rem;
       text-align: center;
     }
 
@@ -152,122 +155,193 @@
     }
 
     .stat-item .muted {
-      color: #547197;
+      color: #4a6b92;
       font-weight: 400;
       margin-left: 0.2rem;
     }
 
-    .divider-light {
-      border: none;
-      border-top: 1.5px solid #e6edf6;
-      margin: 1.5rem 0;
+    .stat-item:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: translateY(-2px);
     }
 
-    /* two column layout: about + skills */
+    .divider-light {
+      border: none;
+      border-top: 1.5px solid rgba(0, 0, 0, 0.05);
+      margin: 1.8rem 0;
+    }
+
+    /* grid about + skills */
     .grid-2col {
       display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 2rem;
-      margin-top: 0.5rem;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 2.2rem;
     }
 
     .about-section h3,
     .skills-section h3 {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #11243e;
+      color: #0c2444;
       letter-spacing: -0.2px;
-      border-bottom: 2px solid #dee9f5;
       padding-bottom: 0.6rem;
       margin-bottom: 1rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      border-bottom: 2px solid rgba(30, 60, 110, 0.10);
     }
 
     .about-section h3 i,
     .skills-section h3 i {
-      color: #2f5a94;
+      color: #2a5a94;
       font-size: 1.1rem;
+      background: rgba(42, 90, 148, 0.08);
+      padding: 0.3rem;
+      border-radius: 12px;
     }
 
     .about-text {
-      color: #1f3552;
-      line-height: 1.6;
+      color: #1e3657;
+      line-height: 1.7;
       font-size: 0.95rem;
     }
 
     .about-text p {
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
     }
 
     .about-text i {
       color: #2f5a94;
+      font-size: 0.9rem;
+      margin-top: 0.2rem;
       width: 1.4rem;
-      margin-right: 0.2rem;
+      text-align: center;
     }
 
     .highlight-badge {
       display: inline-block;
-      background: #e1eaf5;
-      padding: 0.15rem 0.9rem;
-      border-radius: 30px;
+      background: rgba(30, 60, 110, 0.06);
+      padding: 0.15rem 1rem;
+      border-radius: 40px;
       font-size: 0.8rem;
       font-weight: 500;
-      color: #0f2d55;
+      color: #12315e;
       margin-right: 0.3rem;
       margin-bottom: 0.3rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(2px);
     }
 
     .skill-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem 0.6rem;
+      gap: 0.6rem 0.7rem;
       margin-top: 0.2rem;
     }
 
     .skill-tag {
-      background: #eef4fc;
-      color: #17345c;
-      padding: 0.4rem 1rem;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(2px);
+      padding: 0.4rem 1.2rem;
       border-radius: 40px;
       font-size: 0.85rem;
       font-weight: 500;
-      letter-spacing: 0.2px;
-      border: 1px solid #d4e0f0;
+      color: #12315e;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+      transition: 0.15s;
     }
 
     .skill-tag i {
       margin-right: 0.4rem;
       color: #2b5b94;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .skill-tag:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(20, 50, 100, 0.08);
     }
 
     .badge-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem 0.8rem;
+      gap: 0.5rem 0.7rem;
       margin-top: 0.6rem;
     }
 
     .badge-list .badge-item {
-      background: #eef2fa;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(2px);
       padding: 0.25rem 1rem 0.25rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.82rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
       font-weight: 500;
-      color: #1b3d69;
+      color: #16345f;
+      border: 1px solid rgba(255, 255, 255, 0.6);
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      gap: 0.4rem;
     }
 
-    .badge-list .badge-item i {
+    .badge-item i {
       color: #2b4f83;
       font-size: 0.75rem;
     }
 
-    /* contact + extras */
+    /* mini resource box */
+    .resource-box {
+      margin-top: 1.2rem;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(2px);
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      color: #1f3b60;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.2rem 1.2rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .resource-box i {
+      color: #2d5a8f;
+      margin-right: 0.2rem;
+    }
+
+    /* analytics row */
+    .analytics-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      margin: 1.6rem 0 0.2rem 0;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+      color: #1c3d64;
+      gap: 0.4rem 0.8rem;
+    }
+
+    .analytics-row i {
+      color: #2f5a94;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .analytics-row .value {
+      font-weight: 700;
+      color: #0b2342;
+    }
+
+    /* contact + open to */
     .contact-row {
       display: flex;
       flex-wrap: wrap;
@@ -275,104 +349,102 @@
       justify-content: space-between;
       margin-top: 2rem;
       padding-top: 1.2rem;
-      border-top: 1.5px solid #e3ebf6;
+      border-top: 1.5px solid rgba(0, 0, 0, 0.04);
     }
 
     .contact-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem 1.8rem;
+      gap: 0.6rem 1.8rem;
     }
 
     .contact-links a {
       text-decoration: none;
-      color: #1f406b;
+      color: #1d3d68;
       font-weight: 500;
       font-size: 0.95rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
       transition: 0.2s;
+      padding: 0.2rem 0.4rem;
+      border-radius: 40px;
     }
 
     .contact-links a i {
       color: #2b5a94;
       font-size: 1rem;
-      width: 1.2rem;
+      width: 1.4rem;
+      text-align: center;
     }
 
     .contact-links a:hover {
-      color: #0b2a57;
-      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.5);
+      color: #0b2750;
+      transform: translateY(-2px);
     }
 
     .open-to {
-      background: #dce7f7;
-      padding: 0.4rem 1.4rem;
+      background: linear-gradient(145deg, #dce7f7, #eef4fc);
+      padding: 0.4rem 1.6rem;
       border-radius: 50px;
       font-weight: 600;
       font-size: 0.9rem;
       color: #0b274e;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 4px 12px rgba(20, 50, 100, 0.04);
     }
 
     .open-to i {
       color: #0f3b77;
+      font-size: 1rem;
     }
 
-    /* analytics mini */
-    .analytics-row {
+    /* footer */
+    .footer-meta {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      background: #fafdff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 50px;
-      margin: 1.2rem 0 0.2rem 0;
-      border: 1px solid #e3ecf7;
-      font-size: 0.85rem;
-      color: #28446b;
+      align-items: center;
+      margin-top: 1.6rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      font-size: 0.8rem;
+      color: #3f5f84;
     }
 
-    .analytics-row i {
-      color: #345d92;
-      width: 1.2rem;
+    .footer-meta i {
+      margin-right: 0.3rem;
+      color: #2f5a94;
     }
 
-    .analytics-row span {
-      font-weight: 500;
+    .footer-meta .code-badge {
+      background: rgba(255, 255, 255, 0.3);
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
 
-    .analytics-row .value {
-      font-weight: 700;
-      color: #0c2342;
-    }
-
-    .footer-note {
-      text-align: right;
-      font-size: 0.7rem;
-      color: #6d86a8;
-      margin-top: 0.6rem;
-      letter-spacing: 0.3px;
-    }
-
-    /* responsive */
-    @media (max-width: 700px) {
+    /* responsiveness */
+    @media (max-width: 780px) {
       .profile-card {
-        padding: 1.8rem 1.2rem;
+        padding: 2rem 1.5rem;
+        border-radius: 2rem;
       }
       .grid-2col {
         grid-template-columns: 1fr;
-        gap: 1.2rem;
+        gap: 1.5rem;
       }
       .stat-row {
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 0.5rem;
         align-items: flex-start;
-        border-radius: 30px;
-        padding: 1rem 1.2rem;
+        border-radius: 40px;
+        padding: 0.9rem 1.4rem;
       }
       .contact-row {
         flex-direction: column;
@@ -384,23 +456,27 @@
         align-items: flex-start;
       }
       .name-title h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
       .analytics-row {
         flex-direction: column;
-        gap: 0.3rem;
         align-items: flex-start;
         border-radius: 30px;
+        gap: 0.2rem;
       }
     }
 
-    @media (max-width: 450px) {
+    @media (max-width: 460px) {
       .contact-links {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.4rem;
       }
       .stat-item {
         font-size: 0.85rem;
+        padding: 0.1rem 0.2rem;
+      }
+      .profile-card {
+        padding: 1.5rem 1rem;
       }
     }
   </style>
@@ -425,7 +501,7 @@
     </div>
   </div>
 
-  <!-- stat row: followers, connections, views, impressions -->
+  <!-- stat row -->
   <div class="stat-row">
     <div class="stat-item"><i class="fas fa-users"></i> <strong>579</strong> <span class="muted">followers</span></div>
     <div class="stat-item"><i class="fas fa-user-plus"></i> <strong>500+</strong> <span class="muted">connections</span></div>
@@ -433,7 +509,7 @@
     <div class="stat-item"><i class="fas fa-chart-line"></i> <strong>364</strong> <span class="muted">post impressions</span></div>
   </div>
 
-  <!-- grid: about + skills -->
+  <!-- grid about + skills -->
   <div class="grid-2col">
     <!-- about -->
     <div class="about-section">
@@ -445,7 +521,7 @@
         <p><i class="fas fa-certificate"></i> DCA Certified · NSS Volunteer</p>
         <p><i class="fas fa-layer-group"></i> <strong>HTML • CSS • JavaScript • Python</strong></p>
         <p><i class="fas fa-rocket"></i> Building practical, user-focused web applications.<br> Committed to continuous learning and innovation.</p>
-        <div style="margin-top: 0.5rem;">
+        <div style="margin-top: 0.6rem;">
           <span class="highlight-badge"><i class="fas fa-map-pin"></i> India</span>
           <span class="highlight-badge"><i class="fas fa-globe"></i> Open to opportunities</span>
         </div>
@@ -471,16 +547,18 @@
         <span class="badge-item"><i class="fas fa-hands-helping"></i> NSS Volunteer</span>
         <span class="badge-item"><i class="fas fa-university"></i> CT University</span>
       </div>
-      <!-- mini extra: resources (private) -->
-      <div style="margin-top: 1rem; background: #f4f9ff; padding: 0.5rem 1rem; border-radius: 40px; font-size: 0.8rem; color: #1f3b60; display: flex; flex-wrap: wrap; gap: 0.2rem 1rem;">
-        <span><i class="fas fa-lock" style="color:#3a6a9e;"></i> Private: 125 views</span>
+
+      <!-- resource box -->
+      <div class="resource-box">
+        <span><i class="fas fa-lock"></i> Private: 125 views</span>
         <span><i class="fas fa-chart-simple"></i> 364 impressions</span>
         <span><i class="fas fa-search"></i> 11 search appearances</span>
+        <span><i class="fas fa-user-plus"></i> Enhance profile</span>
       </div>
     </div>
   </div>
 
-  <!-- analytics (private to you) -->
+  <!-- analytics row -->
   <div class="analytics-row">
     <span><i class="fas fa-chart-pie"></i> <span class="value">125</span> profile views · discover who viewed</span>
     <span><i class="fas fa-newspaper"></i> <span class="value">364</span> post impressions · check engagement</span>
@@ -500,35 +578,51 @@
     </div>
   </div>
 
-  <!-- tiny footer: resources + extra -->
-  <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-top: 1.4rem; border-top: 1px solid #e6edf6; padding-top: 0.8rem; font-size: 0.8rem; color: #3b5a7c;">
+  <!-- footer meta -->
+  <div class="footer-meta">
     <span><i class="fas fa-folder-open"></i> Resources · Analytics (private)</span>
-    <span><i class="fas fa-user-plus"></i> Enhance profile · Add section</span>
-    <span style="color: #2f5a94;"><i class="fas fa-girlscript"></i> GirlScript Summer of Code</span>
-  </div>
-
-  <div class="footer-note">
-    <i class="fas fa-code"></i> built with html · css · js
+    <span><i class="fas fa-girlscript"></i> GirlScript Summer of Code</span>
+    <span class="code-badge"><i class="fas fa-code"></i> HTML · CSS · JS</span>
   </div>
 
 </div>
 
-<!-- small javascript (just for show / interactivity) -->
+<!-- tiny JS: interactive glow + console -->
 <script>
   (function() {
-    // subtle console greeting – demonstrates JS presence
-    console.log('👩‍💻 Mansi Saini · profile card loaded');
-    // optional: add a tiny interactive hover effect on stat row (just for fun)
-    const statItems = document.querySelectorAll('.stat-item');
-    statItems.forEach(item => {
-      item.addEventListener('mouseenter', function(e) {
-        this.style.transition = '0.15s';
-        this.style.color = '#0b2a57';
+    console.log('🚀 Mansi Saini · profile card (enhanced)');
+
+    // subtle hover effect on stat items
+    const stats = document.querySelectorAll('.stat-item');
+    stats.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        el.style.background = 'rgba(255,255,255,0.7)';
+        el.style.boxShadow = '0 4px 12px rgba(0,0,0,0.02)';
       });
-      item.addEventListener('mouseleave', function(e) {
-        this.style.color = '#1d2f4a';
+      el.addEventListener('mouseleave', () => {
+        el.style.background = 'transparent';
+        el.style.boxShadow = 'none';
       });
     });
+
+    // click on open-to badge shows a friendly alert (optional)
+    const openBtn = document.querySelector('.open-to');
+    if (openBtn) {
+      openBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        alert('🤝 Mansi is open to collaboration! Reach out via contact links.');
+      });
+    }
+
+    // add a tiny "pulse" to the avatar on load
+    const avatar = document.querySelector('.avatar');
+    if (avatar) {
+      avatar.style.transition = 'transform 0.3s ease';
+      setTimeout(() => {
+        avatar.style.transform = 'scale(1.04)';
+        setTimeout(() => { avatar.style.transform = 'scale(1)'; }, 300);
+      }, 400);
+    }
   })();
 </script>
 
